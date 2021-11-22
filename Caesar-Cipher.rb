@@ -1,6 +1,6 @@
 require 'pry-byebug'
 
-##Empty variables
+##Empty variables. Useful for next 2 blocks of code which control input
 message = ""
 shift_factor = ""
 
@@ -28,27 +28,29 @@ def caesar_cipher(message, shift_factor)
     #arrayofletters - so that letters can be converted into numbers
     array = message.split("")
     array.map! do |letter| 
-        if letter == letter.downcase 
+    if letter == letter.downcase 
         alphabet = ("a".."z").to_a 
-        elsif letter == letter.upcase
+    elsif letter == letter.upcase
         alphabet = ("A".."Z").to_a 
-        end
+    end
+    #Code that will keep punctuation,symbols,numbers and spaces the same
         if alphabet.include?(letter) == false
             new_letter = letter
         else
-        alpha_i = alphabet.index(letter) 
-        new_i = shift_factor.to_i + alpha_i.to_i
-        alpha_i = alphabet.index(letter) 
-        new_i = shift_factor.to_i + alpha_i.to_i
+            alpha_i = alphabet.index(letter) 
+            new_i = shift_factor.to_i + alpha_i.to_i
+            alpha_i = alphabet.index(letter) 
+            new_i = shift_factor.to_i + alpha_i.to_i
+        #Condition that allows us to wrap from A - Z e.g. ("W",5) returns "B"
         if new_i > 26
             math = new_i - 26
             new_letter = alphabet[math]
         else 
             new_letter = alphabet[new_i]
     end
+    end
 end
-end
-puts array.join("")
+    puts array.join("")
 end 
 
 
