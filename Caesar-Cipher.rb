@@ -33,6 +33,9 @@ def caesar_cipher(message, shift_factor)
         elsif letter == letter.upcase
         alphabet = ("A".."Z").to_a 
         end
+        if alphabet.include?(letter) == false
+            new_letter = letter
+        else
         alpha_i = alphabet.index(letter) 
         new_i = shift_factor.to_i + alpha_i.to_i
         alpha_i = alphabet.index(letter) 
@@ -44,9 +47,9 @@ def caesar_cipher(message, shift_factor)
             new_letter = alphabet[new_i]
     end
 end
-puts array.join("")
 end
-
+puts array.join("")
+end 
 
 
 caesar_cipher(message,shift_factor)
