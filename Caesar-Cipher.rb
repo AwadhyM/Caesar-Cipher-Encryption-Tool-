@@ -30,18 +30,24 @@ def caesar_cipher(message, shift_factor)
     array.map! do |letter| 
         if letter == letter.downcase 
         alphabet = ("a".."z").to_a 
-        alpha_i = alphabet.index(letter) 
-        new_i = shift_factor.to_i + alpha_i.to_i
-        new_letter = alphabet[new_i]
         elsif letter == letter.upcase
         alphabet = ("A".."Z").to_a 
+        end
         alpha_i = alphabet.index(letter) 
         new_i = shift_factor.to_i + alpha_i.to_i
-        new_letter = alphabet[new_i]
+        alpha_i = alphabet.index(letter) 
+        new_i = shift_factor.to_i + alpha_i.to_i
+        if new_i > 26
+            math = new_i - 26
+            new_letter = alphabet[math]
+        else 
+            new_letter = alphabet[new_i]
     end
 end
-    puts array.join()
+puts array.join("")
 end
+
+
 
 caesar_cipher(message,shift_factor)
 
