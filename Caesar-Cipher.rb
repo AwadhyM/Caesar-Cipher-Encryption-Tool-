@@ -11,3 +11,13 @@ while message.empty? == true
     message = gets.chomp 
 end 
 
+#Loop that repeats prompt if user enters nothing and also checks that input is a number 
+while shift_factor.to_s.empty? == true 
+    puts "Enter the shift factor that will determine how your message is encrypted"
+    shift_factor = gets.chomp 
+    if (shift_factor != "") && (shift_factor.ord >= 48 && shift_factor.ord <= 57)
+        shift_factor.to_i
+    else 
+        shift_factor = ""
+    end
+end
