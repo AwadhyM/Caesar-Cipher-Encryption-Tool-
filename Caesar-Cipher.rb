@@ -21,3 +21,27 @@ while shift_factor.to_s.empty? == true
         shift_factor = ""
     end
 end
+
+
+#method 
+def caesar_cipher(message, shift_factor)
+    #arrayofletters - so that letters can be converted into numbers
+    array = message.split("")
+    array.map! do |letter| 
+        if letter == letter.downcase 
+        alphabet = ("a".."z").to_a 
+        alpha_i = alphabet.index(letter) 
+        new_i = shift_factor.to_i + alpha_i.to_i
+        new_letter = alphabet[new_i]
+        elsif letter == letter.upcase
+        alphabet = ("A".."Z").to_a 
+        alpha_i = alphabet.index(letter) 
+        new_i = shift_factor.to_i + alpha_i.to_i
+        new_letter = alphabet[new_i]
+    end
+end
+    puts array.join()
+end
+
+caesar_cipher(message,shift_factor)
+
