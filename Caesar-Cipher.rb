@@ -49,13 +49,15 @@ def caesar_cipher(message, shift_factor)
             letter = alphabet[j]
             m += 1
           end
+          if j == 26
+            letter = alphabet[0]
+          end
     end
     letter
     end
     puts array.join("")
 end
     
-
 
 caesar_cipher(message,shift_factor)
 
