@@ -22,7 +22,6 @@ while shift_factor.to_s.empty? == true
     end
 end
 
-
 #method 
 def caesar_cipher(message, shift_factor)
     #arrayofletters - so that letters can be converted into numbers
@@ -35,24 +34,29 @@ def caesar_cipher(message, shift_factor)
     end
     #Code that will keep punctuation,symbols,numbers and spaces the same
         if alphabet.include?(letter) == false
-            new_letter = letter
-        else
-            alpha_i = alphabet.index(letter) 
-            new_i = shift_factor.to_i + alpha_i.to_i
-            alpha_i = alphabet.index(letter) 
-            new_i = shift_factor.to_i + alpha_i.to_i
-        #Condition that allows us to wrap from A - Z e.g. ("W",5) returns "B"
-        if new_i > 26
-            math = new_i - 26
-            new_letter = alphabet[math]
-        else 
-            new_letter = alphabet[new_i]
+            letter = letter
+        elsif alphabet.include?(letter) == true
+           j = alphabet.index(letter)
+           m = alphabet.index(letter)
+           new_index = alphabet.index(letter) + shift_factor.to_i
+           while m < new_index 
+            if j == 26
+              j = 0
+              j += 1
+            elsif j < 26 && j != 0
+              j += 1
+            end
+            letter = alphabet[j]
+            m += 1
+          end
     end
+    letter
     end
-end
     puts array.join("")
-end 
+end
+    
 
 
 caesar_cipher(message,shift_factor)
+
 
